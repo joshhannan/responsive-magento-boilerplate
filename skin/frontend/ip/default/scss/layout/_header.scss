@@ -1,0 +1,28 @@
+/*===========================================================================================
+	HEADER
+===========================================================================================*/
+.page-header {
+	width: 100%;
+	float: left;
+	padding: 5px 0;
+	.page-header-container {
+		width: 100%;
+		max-width: $container-width;
+		margin: 0 auto;
+	}
+	.logo {
+		float: left;
+		padding: 0 20px 0 0;
+		img {
+			@include resp_image;
+		}
+	}
+	.content-heading {
+		float: right;
+		padding: 0 0 0 20px;
+	}
+}
+
+#header-cart {
+	display: none;
+}

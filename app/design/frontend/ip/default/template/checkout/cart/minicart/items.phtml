@@ -1,0 +1,94 @@
+<?php
+	/*
+	** Shopping cart sidebar
+	** @var Mage_Checkout_Block_Cart_Minicart $this
+	*/
+	$_cartQty = $this->getSummaryCount();
+	if( empty($_cartQty) ) :
+		$_cartQty = 0;
+	endif;
+?>
+	<div id="minicart-error-message" class="minicart-message"></div>
+	<div id="minicart-success-message" class="minicart-message"></div>
+	<div class="minicart-wrapper">
+		<p class="block-subtitle">
+			<?php echo $this->__('Recently added item(s)') ?>
+			<a class="close skip-link-close" href="#" title="<?php echo $this->quoteEscape($this->__('Close')); ?>">&times;</a>
+		</p>
+<?php
+	$_items = $this->getRecentItems();
+	$countItems = count($_items);
+	if( $countItems ) :
+?>
+		<div>
+			<ul id="cart-sidebar" class="mini-products-list">
+<?php
+		foreach( $_items as $_item ) :
+			echo $this->getItemHtml($_item);
+		endforeach;
+?>
+			</ul><!--/cart-sidebar-->
+		</div>
+		<script type="text/javascript">
+			truncateOptions();
+			decorateList('cart-sidebar', 'none-recursive');
+			$j('document').ready(function() {
+				var minicartOptions  = {
+					formKey:           "<?php echo $this->getFormKey();?>"
+				}
+				var Mini = new Minicart(minicartOptions);
+				Mini.init();
+			});
+		</script>
+		<div id="minicart-widgets">
+			<?php echo $this->getChildHtml('cart_promotion') ?>
+		</div><!--/minicart-widgets-->
+		<div class="block-content">
+			<p class="subtotal">
+<?php
+		if( $this->canApplyMsrp() ) :
+?>
+				<span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+<?php
+		else :
+?>
+				<span class="label"><?php echo $this->__('Cart Subtotal:') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?>
+<?php
+			if( $_subtotalInclTax = $this->getSubtotalInclTax() ) :
+?>
+				<br />(<?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>)
+<?php
+			endif;
+		endif;
+?>
+			</p><!--/subtotal-->
+		</div><!--/block-content-->
+		<div class="minicart-actions">
+<?php
+		if( $_cartQty && $this->isPossibleOnepageCheckout() ) :
+?>
+			<ul class="checkout-types minicart">
+				<?php echo $this->getChildHtml('extra_actions') ?>
+				<li>
+					<a title="<?php echo $this->quoteEscape($this->__('Checkout')) ?>" class="button checkout-button" href="<?php echo $this->getCheckoutUrl() ?>">
+						<?php echo $this->__('Checkout') ?>
+					</a>
+				</li>
+			</ul><!--/checkout-types-->
+<?php
+		endif;
+?>
+			<a class="cart-link" href="<?php echo $this->getUrl('checkout/cart'); ?>">
+				<?php echo $this->__('View Shopping Cart'); ?>
+			</a>
+		</div><!--/minicart-actions-->
+
+<?php
+	else :
+?>
+		<p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+
+<?php
+	endif;
+?>
+	</div><!--/minicart-wrapper-->

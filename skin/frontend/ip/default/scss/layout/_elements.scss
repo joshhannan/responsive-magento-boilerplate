@@ -1,0 +1,90 @@
+/*===========================================================================================
+	LAYOUT
+===========================================================================================*/
+* { @include box-sizing($box-model: border-box); -webkit-font-smoothing: antialiased; }
+body { font-size: 16px; line-height: 1em; font-family: $text; color: $body_text; }
+.chromeframe { text-align: center; padding: 10px 0; }
+.container { max-width: $container-width; margin: 0 auto; width: 100%; }
+.content {
+	h1 { @include font( 2em, 1.2em, $f-default ); margin: 0 0 1em; }
+	h2 { @include font( 1.8em, 1em, $f-default ); margin: 0 0 1em; }
+	h3 { @include font( 1.6em, 1em, $f-default ); margin: 0 0 1em; }
+	h4 { @include font( 1.4em, 1em, $f-default ); margin: 0 0 1em;}
+	h5 { @include font( 1.2em, 1em, $f-default ); margin: 0 0 1em; }
+	h6 { @include font( 1em, 1em, $f-default ); margin: 0 0 1em; }
+	hr { height: 1px; border: none; background: #c2c2c2; max-width: 300px; margin: 0 auto; box-shadow: 0px 0px 1px #ededed; }
+	hr.space { margin: 20px 0 30px; }
+	hr.center_space { margin: 20px auto 30px; }
+	p { @include font( 1em, 1.25em, $f-default ); margin: 0 0 1em; }
+	ol { list-style: decimal outside none; margin: 0 0 0 15px; }
+	ol li { @include font( 1em, 1.25em, $f-default ); margin: 0 0 1em; }
+	ol li ol  { margin: 0 0 0 25px; }
+	ul { list-style: disc outside none; margin: 0 0 0 15px; }
+	ul li { @include font( 1em, 1.25em, $f-default ); margin: 0 0 1em; }
+	ul li ul  { margin: 0 0 0 25px; }
+	blockquote { position: relative; padding: 0 2em; margin: 2em 0; }
+	blockquote {
+		&:before { content: '\f10d'; position: absolute; top: 0; left: 0; font: 1em/1em $fa; }
+		&:after { content: '\f10e'; position: absolute; bottom: 0; right: 0; font: 1em/1em $fa; }
+	}
+	table { width: 100%; float: left; }
+	a { color: $c-black; &:hover, &:active { color: $body_text; } }
+	.button, a.button { color: $c-white; margin: 0 0 1em; }
+	.button, a.button { &.right { @include bp(max-640) { float: none; display: block; margin: 0 auto; } } }
+	&.text_left { text-align: left; }
+	&.text_center { text-align: center; }
+	&.text_right { text-align: right; }
+	.image {
+		&.alignleft, &.aligncenter, &.alignright { @include bp( max-480 ) { max-width: 100% !important; max-height: 100% !important; width: 50%; margin: 0 25% 10px !important; } }
+		&.alignleft { float: left; margin: 0 25px 20px 0; }
+		&.aligncenter { display: block; margin: 0 auto 20px; }
+		&.alignright { float: right; margin: 0 0 20px 25px; }
+	}
+	.wp-caption {
+		background: #e9e9e9;
+		text-align: center;
+		padding: .4em;
+		p { margin: 0; }
+		&.alignleft { float: left; margin: 0 25px 20px 0; }
+		&.aligncenter { display: block; margin: 0 auto 20px; }
+		&.alignright { float: right; margin: 0 0 20px 25px; }
+	}
+}
+.left { float: left; }
+.right { float: right; }
+.image {
+	position: relative;
+	img { @include resp_image; }
+	.button {  position: absolute; bottom: 15px; left: 50%; margin: 0 0 0 -122px; }
+}
+.btn {
+	background: $c-primary;
+	color: $c-white;
+	border: none;
+	text-align: center;
+	font: 1em/1 $text;
+	padding: 15px 20px;
+	text-transform: uppercase;
+	@include inline_block;
+	@include box-sizing( border-box );
+	@include vendorize( transition, all 0.17s ease-in-out);
+}
+.icon {
+	font-family: $fa;
+}
+.video {
+	position: relative;
+	width: 100%;
+	float: left;
+	padding-bottom: 54%;
+	height: 0;
+	border: none;
+	iframe {
+		position: absolute;
+		border: none;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

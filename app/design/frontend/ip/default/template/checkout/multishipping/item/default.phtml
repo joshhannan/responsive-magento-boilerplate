@@ -1,0 +1,41 @@
+<?php
+	/*
+	**	MultiShipping Item Default
+	*/
+?>
+	<h3 class="product-name"><a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a></h3>
+<?php
+	if( $_options = $this->getOptionList() ) :
+?>
+	<dl class="item-options">
+<?php
+		foreach( $_options as $_option ) :
+			$_formatedOptionValue = $this->getFormatedOptionValue($_option);
+?>
+		<dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+		<dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>>
+<?php
+			echo $_formatedOptionValue['value'];
+			if( isset($_formatedOptionValue['full_view']) ) :
+?>
+			<div class="truncated_full_value">
+				<dl class="item-options">
+					<dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+					<dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+				</dl><!--/item-options-->
+			</div><!--/truncated_full_value-->
+<?php
+			endif;
+?>
+		</dd>
+<?php
+		endforeach;
+?>
+	</dl><!--/item-options-->
+<?php
+	endif;
+
+	if( $addtInfoBlock = $this->getProductAdditionalInformationBlock() ) :
+		echo $addtInfoBlock->setItem($this->getItem())->toHtml();
+	endif;
+?>

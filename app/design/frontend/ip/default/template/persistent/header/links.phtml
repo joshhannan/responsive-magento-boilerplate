@@ -1,0 +1,19 @@
+<?php
+/*
+* @category design
+* @package ip_default
+* @see Mage_Page_Block_Template_Links
+*/
+	$_links = $this->getLinks();
+	if( count($_links)>0 ) :
+		foreach( $_links as $_link ) :
+			if( $_link instanceof Mage_Core_Block_Abstract ) :
+				echo $_link->toHtml();
+			else :
+?>
+	<a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getLabel() ?></a>
+<?php
+			endif;
+		endforeach;
+	endif;
+?>

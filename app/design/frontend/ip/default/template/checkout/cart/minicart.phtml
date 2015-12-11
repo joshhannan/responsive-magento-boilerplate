@@ -1,0 +1,18 @@
+<?php
+	/*
+	** Shopping cart sidebar
+	** @see Mage_Checkout_Block_Cart_Sidebar
+	*/
+	$_cartQty = $this->getSummaryCount();
+	if(empty($_cartQty)) :
+		$_cartQty = 0;
+	endif;
+?>
+	<a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
+		<span class="icon"></span>
+		<span class="label"><?php echo $this->__('Cart'); ?></span>
+		<span class="count"><?php echo $_cartQty; ?></span>
+	</a><!--/skip-cart-->
+	<div id="header-cart" class="block block-cart skip-content">
+		<?php echo $this->getChildHtml('minicart_content');?>
+	</div><!--/header-cart-->

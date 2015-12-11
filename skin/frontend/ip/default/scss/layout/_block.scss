@@ -1,0 +1,194 @@
+
+/*===========================================================================================
+	BLOCKS - GENERAL RULES
+===========================================================================================*/
+.block {
+	width: 100%;
+	float: left;
+	&.grid-1 .item {
+		width: 100%;
+	}
+	&.grid-2 .item {
+		@include bp( 769px ) {
+			width: 50%;
+		}
+	}
+	&.grid-3 .item {
+		@include bp( 769px ) {
+			width: 33%;
+		}
+	}
+	&.grid-4 .item {
+		@include bp( 769px ) {
+			width: 25%;
+		}
+	}
+	&.grid-5 .item {
+		@include bp( 769px ) {
+			width: 20%;
+		}	
+	}
+	&.grid-6 .item {
+		@include bp( 769px ) {
+			width: 16.667%;
+		}
+	}
+	&.grid-7 .item {
+		@include bp( 769px ) {
+			width: 14.28%;
+		}
+	}
+	&.grid-8 .item {
+		@include bp( 769px ) {
+			width: 12.5%;
+		}
+	}
+	&.grid-9 .item {
+		@include bp( 769px ) {
+			width: 11.11%;
+		}
+	}
+	&.grid-10 .item {
+		@include bp( 769px ) {
+			width: 10%;
+		}
+	}
+	&.inline-block {
+		text-align: center;
+		.item {
+			float: none;
+			@include inline_block;
+			text-align: left;
+		}
+		.sixth, .fifth, .quarter, .two-sixths, .third, .two-fifths, .three-sixths, .half, .three-fifths, .four-sixths, .two-third, .three-quarters, .four-fifths, .five-sixths {
+			float: none;
+			@include inline-block;
+			text-align: left;
+		}
+	}
+	&.left {
+		.item {
+			float: left;
+		}
+		.sixth, .fifth, .quarter, .two-sixths, .third, .two-fifths, .three-sixths, .half, .three-fifths, .four-sixths, .two-third, .three-quarters, .four-fifths, .five-sixths {
+			float: left;
+		}
+	}
+	&.right {
+		.item {
+			float: right;
+		}
+		.sixth, .fifth, .quarter, .two-sixths, .third, .two-fifths, .three-sixths, .half, .three-fifths, .four-sixths, .two-third, .three-quarters, .four-fifths, .five-sixths {
+			float: right;
+		}
+	}
+	&.row {
+		.item {
+
+		}
+	}
+	.item {
+		width: 100%;
+		float: left;
+		&.left {
+			float: left;
+		}
+		&.right {
+			float: right;
+		}
+	}
+	.sixth, .fifth, .quarter, .two-sixths, .third, .two-fifths, .three-sixths, .half, .three-fifths, .four-sixths, .two-third, .three-quarters, .four-fifths, .five-sixths {
+		width: 100%;
+		float: left;
+		&.left {
+			float: left;
+		}
+		&.right {
+			float: right;
+		}
+	}
+	.sixth {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 16%;
+		}
+	}
+	.fifth {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 20%;
+		}
+	}
+	.quarter {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 25%;
+		}
+	}
+	.two-sixths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 32%;
+		}
+	}
+	.third {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 33%;
+		}
+	}
+	.two-fifths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 40%;
+		}
+	}
+	.three-sixths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 48%;
+		}
+	}
+	.half {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 50%;
+		}
+	}
+	.three-fifths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 60%;
+		}
+	}
+	.four-sixths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 64%;
+		}
+	}
+	.two-thirds {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 67%
+		}
+	}
+	.three-quarters {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 75%;
+		}
+	}
+	.four-fifths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 80%;
+		}
+	}
+	.five-sixths {
+		width: 100%;
+		@include bp( 769px ) {
+			width: 80%;
+		}
+	}
+}

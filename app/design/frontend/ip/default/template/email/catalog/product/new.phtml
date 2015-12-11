@@ -1,0 +1,46 @@
+<?php
+/*
+* @category design
+* @package ip_default
+*/
+	if( ($_products = $this->getProductCollection()) && $_products->getSize() ) :
+		$_columnCount = $this->getColumnCount();
+?>
+	<h2 class="subtitle products"><?php echo $this->__('New Products') ?></h2>
+	<table class="products-grid">
+<?php
+	$i=0;
+		foreach( $_products->getItems() as $_product ) :
+			if( $i++%$_columnCount == 0 ) :
+?>
+		<tr>
+<?php
+			endif;
+			$_imgSize = 260;
+?>
+			<td>
+				<div class="product-wrapper">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+						<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+					</a>
+					<h3 class="product-name">
+						<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a>
+					</h3><!--/product-name-->
+<?php
+			// echo $this->getReviewsSummaryHtml($_product, 'short');
+			echo $this->getPriceHtml($_product, true, '-new');
+?>
+				</div><!--/product-wrapper-->
+			</td>
+<?php
+			if( $i%$_columnCount==0 || $i==count($_products) ) :
+?>
+		<tr>
+<?php
+			endif;
+		endforeach;
+?>
+	</table>
+<?php
+	endif;
+?>

@@ -1,0 +1,26 @@
+<?php
+/*
+* @category design
+* @package ip_default
+*/
+	$_product = $this->getProduct();
+	$_associatedProducts = $this->getAssociatedProducts(); 
+	$_hasAssociatedProducts = count($_associatedProducts) > 0;
+	if( $this->displayProductStockStatus() ) :
+		if( $_product->isAvailable() && $_hasAssociatedProducts ) :
+?>
+			<p class="availability in-stock">
+				<span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+				<span class="value"><?php echo $this->helper('catalog')->__('In stock') ?></span>
+			</p>
+<?php
+		else :
+?>
+			<p class="availability out-of-stock">
+				<span class="label"><?php echo $this->helper('catalog')->__('Availability:') ?></span>
+				<span class="value"><?php echo $this->helper('catalog')->__('Out of stock') ?></span>
+			</p>
+<?php
+		endif;
+	endif;
+?>

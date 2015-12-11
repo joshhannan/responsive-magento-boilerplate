@@ -1,0 +1,50 @@
+<?php
+/*
+* @category design
+* @package ip_default
+*/
+	$_invoice   = $this->getInvoice();
+	$_order     = $this->getOrder();
+
+	if ( $_invoice && $_order ) :
+		$_items = $_order->getAllItems();
+		$_itemCount = count($_items);
+?>
+	<table class="items" cellpadding="0" cellspacing="0" border="0">
+		<thead>
+			<tr>
+				<th class="cell-name">
+<?php
+		if( $_itemCount > 1 ) :
+			echo $this->__('Items in your order');
+		else :
+			echo $this->__('Item in your order');
+		endif;
+?>
+				</th>
+				<th class="cell-name align-center">
+					<?php echo $this->__('Qty'); ?>
+				</th>
+				<th class="cell-name align-right">
+					<?php echo $this->__('Price'); ?>
+				</th>
+			</tr>
+		</thead>
+<?php
+		$i=0;
+		foreach( $_invoice->getAllItems() as $_item ) :
+			if( $_item->getOrderItem()->getParentItem()) :
+				continue;
+			else :
+				$i++;
+			endif;
+			echo $this->getItemHtml($_item);
+		endforeach;
+?>
+		<tfoot>
+			<?php echo $this->getChildHtml('invoice_totals')?>
+		</tfoot>
+	</table>
+<?php
+	endif;
+?>

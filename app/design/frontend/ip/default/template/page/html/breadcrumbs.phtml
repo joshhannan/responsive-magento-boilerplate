@@ -1,0 +1,40 @@
+<?php
+/*
+* @category design
+* @package ip_default
+*/
+	if( $crumbs && is_array($crumbs) ) :
+?>
+	<div class="breadcrumbs">
+		<ul>
+<?php
+		foreach( $crumbs as $_crumbName=>$_crumbInfo ) :
+?>
+			<li class="<?php echo $_crumbName ?>">
+<?php
+			if( $_crumbInfo['link'] ) :
+?>
+				<a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
+<?php
+			elseif( $_crumbInfo['last'] ) :
+?>
+				<strong><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
+<?php
+			else :
+				echo $this->escapeHtml($_crumbInfo['label']);
+			endif;
+			if( !$_crumbInfo['last'] ) :
+?>
+				<span>/ </span>
+<?php
+			endif;
+?>
+			</li>
+<?php
+		endforeach;
+?>
+		</ul>
+	</div><!--/breadcrumbs-->
+<?php
+	endif;
+?>

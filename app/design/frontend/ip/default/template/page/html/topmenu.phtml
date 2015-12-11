@@ -1,0 +1,16 @@
+<?php
+/*
+* @category design
+* @package ip_default
+* Top menu for store
+* @see Mage_Page_Block_Html_Topmenu
+*/
+	$_menu = $this->getHtml('level-top');
+	if($_menu) :
+?>
+	<nav id="primary-navigation">
+		<ul><?php echo $_menu; ?></ul>
+	</nav>
+<?php
+	endif;
+?>

@@ -1,0 +1,34 @@
+<?php
+/*
+* @category design
+* @package ip_default
+*/
+	if( !empty($collection) && $collection->getSize() ) :
+?>
+	<table class="ratings-table">
+		<colgroup>
+			<col class="review-label" />
+			<col class="review-value" />
+		</colgroup>
+		<tbody>
+<?php
+		foreach( $collection as $_rating ) :
+			if( $_rating->getSummary() ) :
+?>
+			<tr>
+				<th><?php echo $this->__($this->escapeHtml($_rating->getRatingCode())) ?></th>
+				<td>
+					<div class="rating-box">
+						<div class="rating" style="width:<?php echo ceil($_rating->getSummary()) ?>%;"></div>
+					</div><!--/rating-box-->
+				</td>
+			</tr>
+<?php
+			endif;
+		endforeach;
+?>
+		</tbody>
+	</table>
+<?php
+	endif;
+?>

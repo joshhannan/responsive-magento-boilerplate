@@ -1,0 +1,65 @@
+/*===========================================================================================
+	CONTACT FORM
+===========================================================================================*/
+.contact-form, .wpcf7 {
+	width: 100%;
+	float: left;
+	.container { 
+		max-width: 650px !important;
+	}
+	label {
+		color: $body_text;
+		font: 12px/12px $text;
+	}
+	.block {
+		position: relative;
+		margin: 0 0 15px;
+		input[type=text], input[type=email], input[type=number], input[type=tel], select, textarea {
+			width: 100%;
+			resize: none;
+			border: 0;
+			background: $c-white;
+			padding: 10px 30px;
+			vertical-align: middle;
+			margin: 0;
+			font: normal 0.8/1.25 $text;
+			box-shadow: 0px 0px 5px $c-shadow;
+			&:focus {
+				outline: none;
+				box-shadow: 0px 0px 5px darken( $c-shadow, 20% );
+			}
+		}
+		textarea {
+			resize: none;
+		}
+	}
+}
+div.wpcf7-validation-errors {
+	border: 2px solid #f7e700;
+	width: 50%;
+	float: left;
+	margin: 0 25%;
+	text-align: center;
+	padding: 10px 0;
+	min-width: 320px;
+}
+span.wpcf7-not-valid-tip {
+	color: #f00;
+	font-size: 1em;
+	display: block;
+	width: 100%;
+	float: left;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	padding: 5px 0 0;
+}
+div.wpcf7-mail-sent-ok {
+	border: 2px solid #398f14;
+	width: 50%;
+	float: left;
+	margin: 0 25%;
+	text-align: center;
+	padding: 10px 0; 
+	min-width: 320px; 
+}

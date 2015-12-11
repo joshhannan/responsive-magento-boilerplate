@@ -1,0 +1,27 @@
+<?php
+/*
+* @category design
+* @package ip_default
+* @see Mage_Paypal_Block_Bml_Banners
+*/
+?>
+	<div class="bml-ad large">
+		<script type="text/javascript" data-pp-pubid="<?php echo $this->escapeHtml($this->getPublisherId()) ?>" data-pp-placementtype="<?php echo $this->escapeHtml($this->getSize()) ?>">
+			(function (d, t) {
+				"use strict";
+				var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+				n.src = "//paypal.adtag.where.com/merchant.js";
+				s.parentNode.insertBefore(n, s);
+			}(document, "script"));
+		</script>
+	</div><!--/bml-ad-->
+	<div class="bml-ad small">
+		<script type="text/javascript" data-pp-pubid="<?php echo $this->escapeHtml($this->getPublisherId()) ?>" data-pp-placementtype="300x50">
+			(function (d, t) {
+				"use strict";
+				var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+				n.src = "//paypal.adtag.where.com/merchant.js";
+				s.parentNode.insertBefore(n, s);
+			}(document, "script"));
+		</script>
+	</div><!--/bml-ad-->

@@ -1,0 +1,62 @@
+/* ===========================================================
+   COLORS
+=========================================================== */
+/* SOCIAL COLORS */
+$linkedin: #0073b2;
+$google_plus: #f63e28;
+$instagram: #507ea3;
+$twitter_blue: #2daae1;
+$facebook_blue: #3b5998;
+$youtube_red: #ff3132;
+$pinterest: #C92228;
+$addthis: #FE6D4C;
+$rss: #FF6600;
+
+/* DEFAULT COLORS */
+$c-light_black: #2b2c2b;
+$c-light_gray: #e4e4e4;
+$c-white: #FFFFFF;
+$c-black: #000000;
+$c-gray: #9fa2a0;
+$c-shadow: #c7c9c8;
+$c-text_gray: #6f726f;
+$c-green: #428a70;
+$c-blue: #6A9FD6;
+
+/* ===========================================================
+   COLOR DEFINITIONS
+=========================================================== */
+
+$bg_color: $c-white;
+$body_text: $c-black;
+$link: $c-blue;
+
+$c-heading-1: $c-light_black;
+$c-heading-2: $c-light_black;
+
+$c-content: $c-light_black;
+
+$c-primary: $twitter_blue;
+$c-secondary: $linkedin;
+$c-tertiary: $addthis;
+
+$c-alert: red;
+
+/* ===========================================================
+   FONTS
+=========================================================== */
+
+$arial: 'Arial', Verdana, sans-serif;
+$fa: 'FontAwesome';
+
+$f-default: $arial;
+$f-heading: $f-default;
+
+$heading: $f-heading;
+$text: $f-default;
+$text_bold: $f-default;
+
+/* ===========================================================
+   SIZES
+=========================================================== */
+$container-width: 1280px;

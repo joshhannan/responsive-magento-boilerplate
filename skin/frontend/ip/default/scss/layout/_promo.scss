@@ -1,0 +1,29 @@
+/*===========================================================================================
+	PROMO AREA
+===========================================================================================*/
+.global-site-notice {
+	width: 100%;
+	float: left;
+	text-align: center;
+	background: $c-alert;
+	color: $c-white;
+	padding: 5px 0;
+}
+.header-language-background {
+	width: 100%;
+	float: left;
+	background: $c-primary;
+	color: $c-white;
+	padding: 5px 0;
+	.header-language-container {
+		max-width: $container-width;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.store-language-container {
+		float: left;
+	}
+	.welcome-msg {
+		float: right;
+	}
+}
